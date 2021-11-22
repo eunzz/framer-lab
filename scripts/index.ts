@@ -11,6 +11,8 @@ const packageJSONPath = path.resolve(packagePath, "package.json");
 async function build() {
   const packageJSON = JSON.parse(fs.readFileSync(packageJSONPath, "utf8"));
 
+  console.log({ packageJSON });
+
   const external = [
     ...Object.keys(packageJSON.dependencies ?? {}),
     ...Object.keys(packageJSON.peerDependencies ?? {}),
